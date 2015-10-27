@@ -1,0 +1,13 @@
+---
+- name: download etcd
+  environment: proxy_env
+  get_url: url={{ etcd_pkg_url }} dest=/tmp/{{ etcd_pkg }}
+  
+- name: unachive etcd
+  unarchive: copy=no src='/tmp/{{ etcd_pkg }}' dest=/usr/local/bin
+
+- name: link etcd and etcdctl
+  file: src='/usr/local/bin/{{ etcd_name }}/{{ item }}' dest='/usr/local/bin/{{ item }}' state=link force=yes
+  with_items:
+    - etcd
+    - etcdctl
