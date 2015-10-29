@@ -1,13 +1,16 @@
 ---
 - name: download etcd
-  environment: proxy_env
-  get_url: url={{ etcd_pkg_url }} dest=/tmp/{{ etcd_pkg }}
+  get_url: url={{etcd_tgz_url}} dest=/tmp/{{etcd_tgz}}
   
 - name: unachive etcd
-  unarchive: copy=no src='/tmp/{{ etcd_pkg }}' dest=/usr/local/bin
+  unarchive: copy=no src='/tmp/{{etcd_tgz}}' dest='{{etcd_install_dir}}'
 
 - name: link etcd and etcdctl
-  file: src='/usr/local/bin/{{ etcd_name }}/{{ item }}' dest='/usr/local/bin/{{ item }}' state=link force=yes
+  file: >
+    src='{{etcd_install_dir}}/{{etcd_name}}/{{item}}'
+    dest='{{etcd_install_dir}}/{{item}}'
+    state=link
+    force=yes
   with_items:
     - etcd
     - etcdctl
