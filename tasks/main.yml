@@ -1,8 +1,27 @@
 ---
-- name: RedHat...
-  when: ansible_os_family == 'RedHat'
-  include: RedHat.yml
+- name: download etcd
+  get_url: >
+    url={{etcd_tgz_url}}
+    dest=/tmp/{{etcd_tgz}}
+    owner=root
+    group=root
+    mode=0644
+  
+- name: unachive etcd
+  unarchive: >
+    copy=no
+    src='/tmp/{{etcd_tgz}}'
+    dest='{{etcd_install_dir}}'
+    owner=root
+    group=root
+    creates={{etcd_install_dir}}/{{etcd_name}}
 
-- name: from github...
-  when: install_from_github
-  include: FromGithub.yml
+- name: link etcd and etcdctl
+  file: >
+    src={{etcd_install_dir}}/{{etcd_name}}/{{item}}
+    dest={{etcd_install_dir}}/{{item}}
+    state=link
+    force=yes
+  with_items:
+    - etcd
+    - etcdctl
