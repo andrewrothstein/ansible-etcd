@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-WorkingDirectory={{etcd_working_dir}}
+WorkingDirectory={{etcd_working_dir}}/
 EnvironmentFile=-/etc/etcd/etcd.conf
 # set GOMAXPROCS to number of processors
 ExecStart=/bin/bash -c "GOMAXPROCS=$(nproc) {{etcd_install_dir}}/etcd"

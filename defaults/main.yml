@@ -5,7 +5,7 @@ etcd_install_dir: /usr/local/bin
 
 etcd_network_iface : default
 #etcd_network_iface : eth1
-etcd_working_dir: /var/lib/etcd/
+etcd_working_dir: /var/lib/etcd
 etcd_cluster_name : default
 etcd_initial_cluster_token: 'e7f83d5c-d2da-11e5-af29-14dae9f5445f'
 
