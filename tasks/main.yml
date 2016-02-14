@@ -25,3 +25,28 @@
   with_items:
     - etcd
     - etcdctl
+
+- name: create dirs...
+  file: >-
+    state=directory
+    path={{item}}
+    owner=root
+    group=root
+    mode=0755
+  with_items:
+    - /etc/etcd
+    - '{{etcd_working_dir}}'
+    
+- name: install etcd.service systemd unit
+  template: >-
+    src={{item}}.j2
+    dest=/{{item}}
+    owner=root
+    group=root
+    mode=0644
+  with_items:
+    - usr/lib/systemd/system/etcd.service
+    - etc/etcd/etcd.conf
+
+- name: start etcd
+  service: name=etcd enabled=yes state=started
