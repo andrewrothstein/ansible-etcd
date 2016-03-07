@@ -15,9 +15,6 @@ galaxy_info:
         - 21
         - 22
         - 23
-    - name: Ubuntu
-      versions:
-        - xenial
 
   categories:
     - development
