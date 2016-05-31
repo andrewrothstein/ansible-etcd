@@ -11,11 +11,11 @@ ETCD_LISTEN_CLIENT_URLS="http://localhost:2379,http://{{hostvars[inventory_hostn
 #
 # [cluster]
 {% if inventory_hostname in groups['etcd-master'] %}
-ETCD_LISTEN_PEER_URLS="http://{{hostvars[inventory_hostname]['ansible_' + etcd_network_iface]['ipv4']['address']}}:2380"
-ETCD_ADVERTISE_CLIENT_URLS="http://{{hostvars[inventory_hostname]['ansible_' + etcd_network_iface]['ipv4']['address']}}:2379"
-ETCD_INITIAL_ADVERTISE_PEER_URLS="http://{{hostvars[inventory_hostname]['ansible_' + etcd_network_iface]['ipv4']['address']}}:2380"
+ETCD_LISTEN_PEER_URLS="http://{{hostvars[inventory_hostname]['ansible_' + hostvars[inventory_hostname]['etcd_network_iface']]['ipv4']['address']}}:2380"
+ETCD_ADVERTISE_CLIENT_URLS="http://{{hostvars[inventory_hostname]['ansible_' + hostvars[inventory_hostname]['etcd_network_iface']]['ipv4']['address']}}:2379"
+ETCD_INITIAL_ADVERTISE_PEER_URLS="http://{{hostvars[inventory_hostname]['ansible_' + hostvars[inventory_hostname]['etcd_network_iface']]['ipv4']['address']}}:2380"
 {% endif %}
-ETCD_INITIAL_CLUSTER="{% for host in groups['etcd-master'] %}{{hostvars[host]['inventory_hostname']}}=http://{{hostvars[host]['ansible_' + etcd_network_iface]['ipv4']['address']}}:2380{% if not loop.last %},{% endif %}{% endfor %}"
+ETCD_INITIAL_CLUSTER="{% for host in groups['etcd-master'] %}{{hostvars[host]['inventory_hostname']}}=http://{{hostvars[host]['ansible_' + hostvars[host]['etcd_network_iface']]['ipv4']['address']}}:2380{% if not loop.last %},{% endif %}{% endfor %}"
 ETCD_INITIAL_CLUSTER_STATE="new"
 ETCD_INITIAL_CLUSTER_TOKEN="{{etcd_initial_cluster_token}}"
 # if you use different ETCD_NAME (e.g. test), set ETCD_INITIAL_CLUSTER value for this name, i.e. "test=http://..."
