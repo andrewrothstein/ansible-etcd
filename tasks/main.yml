@@ -1,22 +1,24 @@
 ---
 - name: download etcd
+  become: yes
+  become_user: root
   get_url: >
     url={{etcd_tgz_url}}
     dest=/tmp/{{etcd_tgz}}
-    owner=root
-    group=root
     mode=0644
   
 - name: unachive etcd
+  become: yes
+  become_user: root
   unarchive: >
     copy=no
-    src='/tmp/{{etcd_tgz}}'
-    dest='{{etcd_install_dir}}'
-    owner=root
-    group=root
+    src=/tmp/{{etcd_tgz}}
+    dest={{etcd_install_dir}}
     creates={{etcd_install_dir}}/{{etcd_name}}
 
 - name: link etcd and etcdctl
+  become: yes
+  become_user: root
   file: >
     src={{etcd_install_dir}}/{{etcd_name}}/{{item}}
     dest={{etcd_install_dir}}/{{item}}
@@ -25,28 +27,3 @@
   with_items:
     - etcd
     - etcdctl
-
-- name: create dirs...
-  file: >-
-    state=directory
-    path={{item}}
-    owner=root
-    group=root
-    mode=0755
-  with_items:
-    - /etc/etcd
-    - '{{etcd_working_dir}}'
-    
-- name: install etcd.service systemd unit
-  template: >-
-    src={{item}}.j2
-    dest=/{{item}}
-    owner=root
-    group=root
-    mode=0644
-  with_items:
-    - usr/lib/systemd/system/etcd.service
-    - etc/etcd/etcd.conf
-
-- name: start etcd
-  service: name=etcd enabled=yes state=started
