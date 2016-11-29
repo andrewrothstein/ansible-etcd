@@ -1,5 +1,5 @@
 ---
-etcd_version: v3.0.9
+etcd_version: v3.0.15
 etcd_platform: linux-amd64
 etcd_install_dir: /usr/local/bin
 
