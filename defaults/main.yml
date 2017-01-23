@@ -1,7 +1,7 @@
 ---
-etcd_version: v3.0.16
+etcd_version: v3.1.0
 etcd_platform: linux-amd64
 etcd_install_dir: /usr/local/bin
-
+etcd_checksum: sha256:cd83d45ebd9cb972205e625fea0ca9c2da94bf29f9af144a3fb8e39413c14a42
 
 

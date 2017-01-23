@@ -2,28 +2,28 @@
 - name: download etcd
   become: yes
   become_user: root
-  get_url: >
-    url={{etcd_tgz_url}}
-    dest=/tmp/{{etcd_tgz}}
-    mode=0644
+  get_url:
+    url: '{{etcd_tgz_url}}'
+    dest: '/tmp/{{etcd_tgz}}'
+    checksum: '{{etcd_checksum}}'
+    mode: '0644'
   
 - name: unachive etcd
   become: yes
   become_user: root
-  unarchive: >
-    copy=no
-    src=/tmp/{{etcd_tgz}}
-    dest={{etcd_install_dir}}
-    creates={{etcd_install_dir}}/{{etcd_name}}
+  unarchive:
+    copy: no
+    src: /tmp/{{etcd_tgz}}
+    dest: '{{etcd_install_dir}}'
+    creates: '{{etcd_install_dir}}/{{etcd_name}}'
 
 - name: link etcd and etcdctl
   become: yes
   become_user: root
-  file: >
-    src={{etcd_install_dir}}/{{etcd_name}}/{{item}}
-    dest={{etcd_install_dir}}/{{item}}
-    state=link
-    force=yes
+  file:
+    src: '{{etcd_install_dir}}/{{etcd_name}}/{{item}}'
+    dest: '{{etcd_install_dir}}/{{item}}'
+    state: link
   with_items:
     - etcd
     - etcdctl
