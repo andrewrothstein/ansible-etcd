@@ -1,11 +1,10 @@
 ---
-etcd_version: v3.1.2
+etcd_version: v3.1.3
 etcd_platform: linux-amd64
 etcd_mirror: https://github.com/coreos/etcd/releases/download
 etcd_install_dir: /usr/local/bin
 
 etcd_checksums:
-  darwin-amd64: sha256:72e9b4f6ff05c6b8960ab60d137721a9d2fcee8422dc7fcf808a0f3541042489
-  linux-amd64: sha256:7d5fc9ae69de29cd87d24b10ddc95e143e13e2d220bef6e3779d98e44dd5c3aa
+  linux-amd64: sha256:ae3c5ac1e78be8ef2a3ecf985d5300f4e02abafcd5b75cc885b18e2ba31a7ba4
 
 etcd_download_timeout_seconds: 600
