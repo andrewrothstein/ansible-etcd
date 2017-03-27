@@ -21,7 +21,9 @@ galaxy_info:
         - all
 
   galaxy_tags:
-    - development
+    - key-value
+    - raft
+    - consensus
 
 dependencies:
   - role: andrewrothstein.unarchive-deps
