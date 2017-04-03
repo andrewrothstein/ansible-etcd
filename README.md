@@ -1,5 +1,6 @@
+[![CircleCI](https://circleci.com/gh/andrewrothstein/ansible-etcd.svg?style=svg)](https://circleci.com/gh/andrewrothstein/ansible-etcd)
 andrewrothstein.etcd
-=========
+====================
 
 Role installs [etcd](https://github.com/coreos/etcd)
 
