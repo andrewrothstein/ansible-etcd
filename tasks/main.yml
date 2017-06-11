@@ -4,10 +4,10 @@
   become_user: root
   get_url:
     url: '{{etcd_tgz_url}}'
-    dest: '/tmp/{{etcd_tgz}}'
+    dest: /tmp/{{etcd_tgz}}
     checksum: '{{etcd_checksum}}'
     timeout: '{{etcd_download_timeout_seconds}}'
-    mode: '0644'
+    mode: 0644
   
 - name: unachive etcd
   become: yes
