@@ -1,6 +1,6 @@
 andrewrothstein.etcd
 ====================
-[![CircleCI](https://circleci.com/gh/andrewrothstein/ansible-etcd.svg?style=svg)](https://circleci.com/gh/andrewrothstein/ansible-etcd)
+[![Build Status](https://travis-ci.org/andrewrothstein/ansible-etcd.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-etcd)
 
 Role installs [etcd](https://github.com/coreos/etcd)
 
