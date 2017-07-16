@@ -2,6 +2,6 @@
 etcd_name : etcd-{{etcd_version}}-{{etcd_platform}}
 etcd_tgz : '{{etcd_name}}.tar.gz'
 
-# https://github.com/coreos/etcd/releases/download/v3.2.1/etcd-v3.2.1-linux-amd64.tar.gz
+# https://github.com/coreos/etcd/releases/download/v3.2.3/etcd-v3.2.3-linux-amd64.tar.gz
 etcd_tgz_url : '{{etcd_mirror}}/{{etcd_version}}/{{etcd_tgz}}'
 etcd_checksum: '{{etcd_checksums[etcd_platform]}}'
