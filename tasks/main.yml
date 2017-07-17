@@ -13,7 +13,7 @@
   become: yes
   become_user: root
   unarchive:
-    remote_src: no
+    remote_src: yes
     src: /tmp/{{etcd_tgz}}
     dest: '{{etcd_install_dir}}'
     creates: '{{etcd_install_dir}}/{{etcd_name}}'
