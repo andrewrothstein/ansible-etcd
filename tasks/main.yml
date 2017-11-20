@@ -1,22 +1,37 @@
 ---
-- name: download etcd
+- name: check for installation of etcd
   become: yes
-  become_user: root
-  get_url:
-    url: '{{etcd_tgz_url}}'
-    dest: /tmp/{{etcd_tgz}}
-    checksum: '{{etcd_checksum}}'
-    timeout: '{{etcd_download_timeout_seconds}}'
-    mode: 0644
+  stat:
+    path: '{{etcd_install_dir}}/{{etcd_name}}'
+  change_when: false
+  register: etcd_binary_dir
 
-- name: unachive etcd
-  become: yes
-  become_user: root
-  unarchive:
-    remote_src: yes
-    src: /tmp/{{etcd_tgz}}
-    dest: '{{etcd_install_dir}}'
-    creates: '{{etcd_install_dir}}/{{etcd_name}}'
+- when: not etcd_binary_dir.stat.exists
+  block:
+    - name: download etcd
+      become: yes
+      become_user: root
+      get_url:
+        url: '{{etcd_tgz_url}}'
+        dest: /tmp/{{etcd_tgz}}
+        checksum: '{{etcd_checksum}}'
+        timeout: '{{etcd_download_timeout_seconds}}'
+        mode: 0644
+    - name: unachive etcd
+      become: yes
+      become_user: root
+      unarchive:
+        remote_src: yes
+        src: /tmp/{{etcd_tgz}}
+        dest: '{{etcd_install_dir}}'
+        creates: '{{etcd_install_dir}}/{{etcd_name}}'
+  always:
+    - name: delete archive
+      become: yes
+      become_user: root
+      file:
+        path: /tmp/{{etcd_tgz}}
+        state: absent
 
 - name: link etcd and etcdctl
   become: yes
