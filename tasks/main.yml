@@ -3,7 +3,7 @@
   become: yes
   stat:
     path: '{{etcd_install_dir}}/{{etcd_name}}'
-  change_when: false
+  changed_when: false
   register: etcd_binary_dir
 
 - when: not etcd_binary_dir.stat.exists
