@@ -2,3 +2,4 @@
 requirements.yml
 Dockerfile.*
 *.retry
+*.gz
