@@ -12,8 +12,8 @@
       become: yes
       become_user: root
       get_url:
-        url: '{{etcd_tgz_url}}'
-        dest: /tmp/{{etcd_tgz}}
+        url: '{{etcd_archive_url}}'
+        dest: /tmp/{{etcd_archive}}
         checksum: '{{etcd_checksum}}'
         timeout: '{{etcd_download_timeout_seconds}}'
         mode: 0644
@@ -22,7 +22,7 @@
       become_user: root
       unarchive:
         remote_src: yes
-        src: /tmp/{{etcd_tgz}}
+        src: /tmp/{{etcd_archive}}
         dest: '{{etcd_install_dir}}'
         creates: '{{etcd_install_dir}}/{{etcd_name}}'
   always:
@@ -30,7 +30,7 @@
       become: yes
       become_user: root
       file:
-        path: /tmp/{{etcd_tgz}}
+        path: /tmp/{{etcd_archive}}
         state: absent
 
 - name: link etcd and etcdctl
@@ -41,5 +41,5 @@
     dest: '{{etcd_install_dir}}/{{item}}'
     state: link
   with_items:
-    - etcd
-    - etcdctl
+    - etcd{{etcd_exe_suffix|default("")}}
+    - etcdctl{{etcd_exe_suffix|default("")}}
