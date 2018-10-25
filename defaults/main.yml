@@ -47,8 +47,11 @@ etcd_checksums:
   # https://github.com/coreos/etcd/releases/download/v3.3.9/etcd-v3.3.9-linux-amd64.tar.gz
   v3.3.9:
     linux-amd64: sha256:7b95bdc6dfd1d805f650ea8f886fdae6e7322f886a8e9d1b0d14603767d053b1
-  # https://github.com/coreos/etcd/releases/download/v3.3.10/etcd-v3.3.10-linux-amd64.tar.gz
   v3.3.10:
+    darwin-amd64: sha256:fac4091c7ba6f032830fad7809a115909d0f0cae5cbf5b34044540def743577b
     linux-amd64: sha256:1620a59150ec0a0124a65540e23891243feb2d9a628092fb1edcc23974724a45
+    linux-arm64: sha256:5ec97b0b872adce275b8130d19db314f7f2b803aeb24c4aae17a19e2d66853c4
+    linux-ppc64le: sha256:148fe96f0ec1813c5db9916199e96a913174304546bc8447a2d2f9fee4b8f6c2
+    windows-amd64: sha256:a82482fcbe161d4fc2785d6ceb1af9f222b9483a913ecc35b3444e44dc77009c
 
 etcd_download_timeout_seconds: 600
