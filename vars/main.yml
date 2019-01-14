@@ -1,6 +1,6 @@
 ---
-etcd_name: etcd-{{etcd_version}}-{{etcd_platform}}
-etcd_archive: '{{etcd_name}}.{{etcd_archive_suffix|default("tar.gz")}}'
+etcd_name: etcd-{{ etcd_version }}-{{ etcd_platform }}
+etcd_archive: '{{ etcd_name }}.{{ etcd_archive_suffix|default("tar.gz") }}'
 
-etcd_archive_url: '{{etcd_mirror}}/{{etcd_version}}/{{etcd_archive}}'
-etcd_checksum: '{{etcd_checksums[etcd_version][etcd_platform]}}'
+etcd_archive_url: '{{ etcd_mirror }}/{{ etcd_version }}/{{ etcd_archive }}'
+etcd_checksum: '{{ etcd_checksums[etcd_version][etcd_platform] }}'

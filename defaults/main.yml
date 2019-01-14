@@ -1,5 +1,5 @@
 ---
-etcd_version: v3.3.10
+etcd_version: v3.3.11
 etcd_platform: linux-amd64
 etcd_mirror: https://github.com/coreos/etcd/releases/download
 etcd_install_dir: /usr/local/bin
@@ -53,5 +53,12 @@ etcd_checksums:
     linux-arm64: sha256:5ec97b0b872adce275b8130d19db314f7f2b803aeb24c4aae17a19e2d66853c4
     linux-ppc64le: sha256:148fe96f0ec1813c5db9916199e96a913174304546bc8447a2d2f9fee4b8f6c2
     windows-amd64: sha256:a82482fcbe161d4fc2785d6ceb1af9f222b9483a913ecc35b3444e44dc77009c
+  v3.3.11:
+    darwin-amd64: sha256:c6aa34e78a0a217ebdb014a1a08f7023c88bed23c38dba24f5f23f6583c33a0b
+    linux-amd64: sha256:ef794bc8eb73e34c571768fe781b842d6e52c48a189418cd8bdac79985d06070
+    linux-arm64: sha256:03932f6ec5e7cf4c66414cb31debfafd1d039d1cc46235999f11c1846a0b9368
+    linux-ppc64le: sha256:311f82ff31bb8d49fc0671ac5710318596ddcfca3dd2aa3bc81ec694484faeaf
+    windows-amd64: sha256:def6df5444091bef357584ea2b73abd82280063e99df4298bb1d6041140db832
 
 etcd_download_timeout_seconds: 600
+

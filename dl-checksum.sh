@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-VER=v3.3.10
+VER=v3.3.11
 DIR=~/Downloads
 MIRROR=https://github.com/etcd-io/etcd/releases/download/$VER
 FILE_PREFIX=etcd-$VER
@@ -19,4 +19,3 @@ dl linux-ppc64le tar.gz
 dl windows-amd64 zip
 
 sha256sum $DIR/${FILE_PREFIX}*
-
