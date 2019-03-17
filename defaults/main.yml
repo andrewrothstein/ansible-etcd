@@ -67,4 +67,3 @@ etcd_checksums:
     windows-amd64: sha256:05eb68132ce06a37704da595f17ee33b65ee1e4cf9a6e5ed947d9b74538c3798
 
 etcd_download_timeout_seconds: 600
-
