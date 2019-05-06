@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-VER=v3.3.12
+VER=v3.3.13
 DIR=~/Downloads
 MIRROR=https://github.com/etcd-io/etcd/releases/download/$VER
 FILE_PREFIX=etcd-$VER
