@@ -18,7 +18,7 @@ dl()
     FILE=etcd-${VER}-$OS-$ARCH.$ARCHIVETYPE
     URL=$MIRROR/$FILE
     printf "    # %s\n" $URL
-    printf "    sha256:%s\n" $(grep $FILE $LSHASUM | awk '{print $1}')
+    printf "    %s-%s: sha256:%s\n" $OS $ARCH $(grep $FILE $LSHASUM | awk '{print $1}')
 }
 
 printf "  # %s\n" $RSHASUM
