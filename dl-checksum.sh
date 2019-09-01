@@ -1,21 +1,30 @@
 #!/usr/bin/env sh
-VER=v3.3.13
+VER=${1:-v3.4.0}
 DIR=~/Downloads
 MIRROR=https://github.com/etcd-io/etcd/releases/download/$VER
-FILE_PREFIX=etcd-$VER
+RSHASUM=$MIRROR/SHA256SUMS
+LSHASUM=$DIR/etcd-${VER}-SHA256SUMS
+
+if [ ! -e $LSHASUM ];
+then
+    wget -q -O $LSHASUM $RSHASUM
+fi
 
 dl()
 {
-    OSPLAT=$1
-    SUFFIX=$2
-    FILE=$FILE_PREFIX-$OSPLAT.$SUFFIX
-    wget -O $DIR/$FILE $MIRROR/$FILE
+    OS=$1
+    ARCH=$2
+    ARCHIVETYPE=$3
+    FILE=etcd-${VER}-$OS-$ARCH.$ARCHIVETYPE
+    URL=$MIRROR/$FILE
+    printf "    # %s\n" $URL
+    printf "    sha256:%s\n" $(grep $FILE $LSHASUM | awk '{print $1}')
 }
 
-dl darwin-amd64 zip
-dl linux-amd64 tar.gz
-dl linux-arm64 tar.gz
-dl linux-ppc64le tar.gz
-dl windows-amd64 zip
-
-sha256sum $DIR/${FILE_PREFIX}*
+printf "  # %s\n" $RSHASUM
+printf "  %s:\n" $VER
+dl darwin amd64 zip
+dl linux amd64 tar.gz
+dl linux arm64 tar.gz
+dl linux ppc64le tar.gz
+dl windows amd64 zip
