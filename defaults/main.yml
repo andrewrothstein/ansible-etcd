@@ -1,5 +1,5 @@
 ---
-etcd_version: v3.4.0
+etcd_version: v3.4.1
 etcd_platform: linux-amd64
 etcd_mirror: https://github.com/coreos/etcd/releases/download
 etcd_install_dir: /usr/local/bin
@@ -83,5 +83,17 @@ etcd_checksums:
     linux-ppc64le: sha256:df966d86cd11220657447883d7f67bfbc7ce4994b2ab6d4defbe3c8d5d064799
     # https://github.com/etcd-io/etcd/releases/download/v3.4.0/etcd-v3.4.0-windows-amd64.zip
     windows-amd64: sha256:6447c94d837a281eb9d4cd79a86c937c11be454db499c9cec6c1e215536e58de
+  # https://github.com/etcd-io/etcd/releases/download/v3.4.1/SHA256SUMS
+  v3.4.1:
+    # https://github.com/etcd-io/etcd/releases/download/v3.4.1/etcd-v3.4.1-darwin-amd64.zip
+    darwin-amd64: sha256:90e0ec868b5278eb956e876b8439198067561a4d043427ea6f8c5765d4a00c10
+    # https://github.com/etcd-io/etcd/releases/download/v3.4.1/etcd-v3.4.1-linux-amd64.tar.gz
+    linux-amd64: sha256:486618c59d45207dd89846306953abbc6e43d5b53be3eee104b7f2532648bf0f
+    # https://github.com/etcd-io/etcd/releases/download/v3.4.1/etcd-v3.4.1-linux-arm64.tar.gz
+    linux-arm64: sha256:86e2bedc651fe83a68dedd1656b5a9048ce59ad365ce3a1cc9d24186b5414e73
+    # https://github.com/etcd-io/etcd/releases/download/v3.4.1/etcd-v3.4.1-linux-ppc64le.tar.gz
+    linux-ppc64le: sha256:00dbc8d9674adaca9d175607ed260c8a8666cdf3f347c37a24963118ebc6c1fe
+    # https://github.com/etcd-io/etcd/releases/download/v3.4.1/etcd-v3.4.1-windows-amd64.zip
+    windows-amd64: sha256:34acf014ded94b620cf4ac637d3e0080572f9113402b9396c90119cf92961d59
 
 etcd_download_timeout_seconds: 600

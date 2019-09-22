@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-VER=${1:-v3.4.0}
+VER=${1:-v3.4.1}
 DIR=~/Downloads
 MIRROR=https://github.com/etcd-io/etcd/releases/download/$VER
 RSHASUM=$MIRROR/SHA256SUMS
