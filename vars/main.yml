@@ -1,4 +1,5 @@
 ---
+etcd_platform: '{{ etcd_os }}-{{ etcd_arch }}'
 etcd_name: etcd-{{ etcd_version }}-{{ etcd_platform }}
 etcd_archive: '{{ etcd_name }}.{{ etcd_archive_suffix|default("tar.gz") }}'
 

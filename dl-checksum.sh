@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-VER=${1:-v3.4.1}
+VER=${1:-v3.4.2}
 DIR=~/Downloads
 MIRROR=https://github.com/etcd-io/etcd/releases/download/$VER
 RSHASUM=$MIRROR/SHA256SUMS
@@ -12,13 +12,14 @@ fi
 
 dl()
 {
-    OS=$1
-    ARCH=$2
-    ARCHIVETYPE=$3
-    FILE=etcd-${VER}-$OS-$ARCH.$ARCHIVETYPE
-    URL=$MIRROR/$FILE
-    printf "    # %s\n" $URL
-    printf "    %s-%s: sha256:%s\n" $OS $ARCH $(grep $FILE $LSHASUM | awk '{print $1}')
+    local os=$1
+    local arch=$2
+    local archive_type=$3
+    local platform="${os}-${arch}"
+    local file=etcd-${VER}-${platform}.${archive_type}
+    local url=$MIRROR/$file
+    printf "    # %s\n" $url
+    printf "    %s: sha256:%s\n" $platform $(grep $file $LSHASUM | awk '{print $1}')
 }
 
 printf "  # %s\n" $RSHASUM
