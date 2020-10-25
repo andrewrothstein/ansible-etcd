@@ -25,6 +25,7 @@
         src: /tmp/{{ etcd_archive }}
         dest: '{{ etcd_install_dir }}'
         creates: '{{ etcd_install_dir }}/{{ etcd_name }}'
+        extra_opts: '{{ etcd_unarchive_extra_opts }}'
   always:
     - name: delete archive
       become: yes
