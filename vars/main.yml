@@ -5,3 +5,5 @@ etcd_archive: '{{ etcd_name }}.{{ etcd_archive_suffix|default("tar.gz") }}'
 
 etcd_archive_url: '{{ etcd_mirror }}/{{ etcd_version }}/{{ etcd_archive }}'
 etcd_checksum: '{{ etcd_checksums[etcd_version][etcd_platform] }}'
+
+etcd_unarchive_extra_opts: '{{ (ansible_virtualization_type|default("") == "lxc") | ternary(["--no-same-owner"], []) }}'
