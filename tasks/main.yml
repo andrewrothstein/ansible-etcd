@@ -1,44 +1,44 @@
 ---
-- name: check for installation of etcd
+- name: check for installation in {{ etcd_install_subdir }}
   become: yes
   stat:
-    path: '{{ etcd_install_dir }}/{{ etcd_name }}'
+    path: '{{ etcd_install_subdir }}'
   changed_when: false
   register: etcd_binary_dir
 
 - when: not etcd_binary_dir.stat.exists
   block:
-    - name: download etcd
+    - name: downloading {{ etcd_archive_url }} to {{ etcd_tmp_archive }}
       become: yes
       become_user: root
       get_url:
         url: '{{ etcd_archive_url }}'
-        dest: /tmp/{{ etcd_archive }}
+        dest: '{{ etcd_tmp_archive }}'
         checksum: '{{ etcd_checksum }}'
         timeout: '{{ etcd_download_timeout_seconds }}'
         mode: 0644
-    - name: unachive etcd
+    - name: unachive {{ etcd_tmp_archive }} to {{ etcd_install_dir }}
       become: yes
       become_user: root
       unarchive:
         remote_src: yes
-        src: /tmp/{{ etcd_archive }}
+        src: '{{ etcd_tmp_archive }}'
         dest: '{{ etcd_install_dir }}'
-        creates: '{{ etcd_install_dir }}/{{ etcd_name }}'
+        creates: '{{ etcd_install_subdir }}'
         extra_opts: '{{ etcd_unarchive_extra_opts }}'
   always:
-    - name: delete archive
+    - name: rm {{ etcd_tmp_archive }}
       become: yes
       become_user: root
       file:
-        path: /tmp/{{ etcd_archive }}
+        path: '{{ etcd_tmp_archive }}'
         state: absent
 
-- name: link etcd and etcdctl
+- name: linking etcd and etcdctl from {{ etcd_install_dir }} to {{ etcd_install_subdir }}
   become: yes
   become_user: root
   file:
-    src: '{{ etcd_install_dir }}/{{ etcd_name }}/{{ item }}'
+    src: '{{ etcd_install_subdir }}/{{ item }}'
     dest: '{{ etcd_install_dir }}/{{ item }}'
     state: link
   with_items:
