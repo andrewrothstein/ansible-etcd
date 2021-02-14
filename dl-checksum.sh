@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-#set -x
+set -e
 DIR=~/Downloads
 MIRROR=https://github.com/etcd-io/etcd/releases/download
 

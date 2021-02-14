@@ -16,6 +16,9 @@ galaxy_info:
   - name: Alpine
     versions:
     - all
+  - name: Archlinux
+    versions:
+    - all
   - name: Debian
     versions:
     - buster
@@ -28,9 +31,6 @@ galaxy_info:
     versions:
     - 31
     - 32
-  - name: Gentoo
-    versions:
-    - all
   - name: Ubuntu
     versions:
     - bionic
