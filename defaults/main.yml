@@ -1,5 +1,5 @@
 ---
-etcd_version: v3.4.16
+etcd_version: v3.5.0
 etcd_os: linux
 etcd_arch: amd64
 etcd_mirror: https://github.com/etcd-io/etcd/releases/download
@@ -266,3 +266,15 @@ etcd_checksums:
     linux-ppc64le: sha256:59953932924041719fd73ab5d31c417a912331dceba49818ee5928fade2d8494
     # https://github.com/etcd-io/etcd/releases/download/v3.4.16/etcd-v3.4.16-windows-amd64.zip
     windows-amd64: sha256:b862c38da3788b15d76a447ec845a2fee79ca702f67e9acd064cd939303bf9f6
+  # https://github.com/etcd-io/etcd/releases/download/v3.5.0/SHA256SUMS
+  v3.5.0:
+    # https://github.com/etcd-io/etcd/releases/download/v3.5.0/etcd-v3.5.0-darwin-amd64.zip
+    darwin-amd64: sha256:da465ed39d5d32aa7c0acf26467ca18f21b0cd8a0a26263335d77f9a3ea377e6
+    # https://github.com/etcd-io/etcd/releases/download/v3.5.0/etcd-v3.5.0-linux-amd64.tar.gz
+    linux-amd64: sha256:864baa0437f8368e0713d44b83afe21dce1fb4ee7dae4ca0f9dd5f0df22d01c4
+    # https://github.com/etcd-io/etcd/releases/download/v3.5.0/etcd-v3.5.0-linux-arm64.tar.gz
+    linux-arm64: sha256:444e10e6880595d75aaf55762901c722049b29d56fef50b2f23464bb7f9db74d
+    # https://github.com/etcd-io/etcd/releases/download/v3.5.0/etcd-v3.5.0-linux-ppc64le.tar.gz
+    linux-ppc64le: sha256:bde45588b66ed2fe0a7082b1cdb08124efff4960edfa6af4dd2f645886004a86
+    # https://github.com/etcd-io/etcd/releases/download/v3.5.0/etcd-v3.5.0-windows-amd64.zip
+    windows-amd64: sha256:2dafaba9e4e4ee40b700050ef2576e0350c256cadde1d102e747ac55c4b37494
