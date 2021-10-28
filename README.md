@@ -1,8 +1,9 @@
 andrewrothstein.etcd
 ====================
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-etcd.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-etcd)
+![Build Status](https://github.com/andrewrothstein/ansible-etcd/actions/workflows/build.yml/badge.svg)
 
-Role installs [etcd](https://github.com/coreos/etcd)
+
+Installs [etcd](https://github.com/coreos/etcd)
 
 Requirements
 ------------
