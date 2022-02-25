@@ -23,7 +23,7 @@ dl_ver() {
     local lshasum=$DIR/etcd-${ver}-SHA256SUMS
 
     if [ ! -e $lshasum ]; then
-        wget -q -O $lshasum $rshasum
+        curl -sSLf -o $lshasum $rshasum
     fi
 
     printf "  # %s\n" $rshasum
@@ -35,4 +35,4 @@ dl_ver() {
     dl $ver $lshasum windows amd64 zip
 }
 
-dl_ver ${1:-v3.5.1}
+dl_ver ${1:-v3.5.2}
