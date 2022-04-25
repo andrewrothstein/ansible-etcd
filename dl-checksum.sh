@@ -32,7 +32,8 @@ dl_ver() {
     dl $ver $lshasum linux amd64
     dl $ver $lshasum linux arm64
     dl $ver $lshasum linux ppc64le
+    dl $ver $lshasum linux s390x
     dl $ver $lshasum windows amd64 zip
 }
 
-dl_ver ${1:-v3.5.3}
+dl_ver ${1:-v3.5.4}
