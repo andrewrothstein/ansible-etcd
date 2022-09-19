@@ -29,6 +29,7 @@ dl_ver() {
     printf "  # %s\n" $rshasum
     printf "  %s:\n" $ver
     dl $ver $lshasum darwin amd64 zip
+    dl $ver $lshasum darwin arm64 zip
     dl $ver $lshasum linux amd64
     dl $ver $lshasum linux arm64
     dl $ver $lshasum linux ppc64le
@@ -36,4 +37,4 @@ dl_ver() {
     dl $ver $lshasum windows amd64 zip
 }
 
-dl_ver ${1:-v3.5.4}
+dl_ver ${1:-v3.5.5}
