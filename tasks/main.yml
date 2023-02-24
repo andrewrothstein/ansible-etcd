@@ -36,28 +36,10 @@
         path: '{{ etcd_tmp_archive }}'
         state: absent
 
-- name: linking etcd and etcdctl from {{ etcd_install_dir }} to {{ etcd_install_subdir }}
-  become: true
-  become_user: root
-  file:
-    src: '{{ etcd_install_subdir }}/{{ item }}'
-    dest: '{{ etcd_install_dir }}/{{ item }}'
-    state: link
-  with_items:
+- loop:
     - etcd{{ etcd_exe_suffix | default("") }}
     - etcdctl{{ etcd_exe_suffix | default("") }}
-
-- name: check if this version has an etcdutl
-  become: true
-  stat:
-    path: '{{ etcd_install_dir }}/etcdutl{{ etcd_exe_suffix | default("") }}'
-  register: etcd_has_etcdutl
-
-  - name: linking etcdutil from {{ etcd_install_dir }} to {{ etcd_install_subdir }}
-  become: true
-  become_user: root
-  file:
-    src: '{{ etcd_install_subdir }}/etcdutl{{ etcd_exe_suffix | default("") }}'
-    dest: '{{ etcd_install_dir }}/etcdutl{{ etcd_exe_suffix | default("") }}'
-    state: link
-  when: etcd_has_etcdutl.stat.exists
+    - etcdutl{{ etcd_exe_suffix | default("") }}
+  loop_control:
+    loop_var: etcd_exe
+  include_tasks: links.yml

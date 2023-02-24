@@ -1,0 +1,14 @@
+---
+- hosts: all
+  tasks:
+    - name: looking for {{ exe }}
+      stat:
+        path: '{{ exe }}'
+      register: exe_bin
+    - when: exe_bin.stat.exists
+      block:
+        - command: '{{ exe }} {{ dash_version }}'
+          register: exe_output
+        - name: '{{ exe }} {{ dash_version }}'
+          debug:
+            msg: '{{ exe_output.stdout }}'

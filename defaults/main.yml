@@ -269,18 +269,6 @@ etcd_checksums:
     linux-ppc64le: sha256:59953932924041719fd73ab5d31c417a912331dceba49818ee5928fade2d8494
     # https://github.com/etcd-io/etcd/releases/download/v3.4.16/etcd-v3.4.16-windows-amd64.zip
     windows-amd64: sha256:b862c38da3788b15d76a447ec845a2fee79ca702f67e9acd064cd939303bf9f6
-  # https://github.com/etcd-io/etcd/releases/download/v3.4.16/SHA256SUMS
-  v3.4.16:
-    # https://github.com/etcd-io/etcd/releases/download/v3.4.16/etcd-v3.4.16-darwin-amd64.zip
-    darwin-amd64: sha256:27245adea2e0951913276d8c321d79b91caaf904ae3fdaab65194ab41c01db08
-    # https://github.com/etcd-io/etcd/releases/download/v3.4.16/etcd-v3.4.16-linux-amd64.tar.gz
-    linux-amd64: sha256:2e2d5b3572e077e7641193ed07b4929b0eaf0dc2f9463e9b677765528acafb89
-    # https://github.com/etcd-io/etcd/releases/download/v3.4.16/etcd-v3.4.16-linux-arm64.tar.gz
-    linux-arm64: sha256:6712ff22aeec39ed19688b1edf6747194193b074548fc62163e4804ca0264512
-    # https://github.com/etcd-io/etcd/releases/download/v3.4.16/etcd-v3.4.16-linux-ppc64le.tar.gz
-    linux-ppc64le: sha256:59953932924041719fd73ab5d31c417a912331dceba49818ee5928fade2d8494
-    # https://github.com/etcd-io/etcd/releases/download/v3.4.16/etcd-v3.4.16-windows-amd64.zip
-    windows-amd64: sha256:b862c38da3788b15d76a447ec845a2fee79ca702f67e9acd064cd939303bf9f6
   # https://github.com/etcd-io/etcd/releases/download/v3.4.17/SHA256SUMS
   v3.4.17:
     # https://github.com/etcd-io/etcd/releases/download/v3.4.17/etcd-v3.4.17-darwin-amd64.zip

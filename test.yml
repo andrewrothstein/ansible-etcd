@@ -2,12 +2,15 @@
 - hosts: all
   roles:
     - role: '{{ playbook_dir }}'
-  tasks:
-    - command: /usr/local/bin/etcd --version
-      register: etcd_test_output
-    - debug:
-        msg: '{{ etcd_test_output.stdout }}'
-    - command: /usr/local/bin/etcdctl version
-      register: etcdctl_test_output
-    - debug:
-        msg: '{{ etcdctl_test_output.stdout }}'
+- import_playbook: test-exe.yml
+  vars:
+    exe: /usr/local/bin/etcd
+    dash_version: --version
+- import_playbook: test-exe.yml
+  vars:
+    exe: /usr/local/bin/etcdctl
+    dash_version: version
+- import_playbook: test-exe.yml
+  vars:
+    exe: /usr/local/bin/etcdutl
+    dash_version: version

@@ -1,0 +1,3 @@
+---
+etcd_fq_exe: '{{ etcd_install_subdir }}/{{ etcd_exe }}'
+etcd_fq_link: '{{ etcd_install_dir }}/{{ etcd_exe }}'
