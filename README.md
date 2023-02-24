@@ -26,7 +26,7 @@ Example Playbook
 ```yml
 - hosts: servers
   roles:
-	- andrewrothstein.etcd
+    - andrewrothstein.etcd
 ```
 
 License
