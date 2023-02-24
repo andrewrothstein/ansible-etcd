@@ -37,9 +37,9 @@
         state: absent
 
 - loop:
-    - etcd{{ etcd_exe_suffix | default("") }}
-    - etcdctl{{ etcd_exe_suffix | default("") }}
-    - etcdutl{{ etcd_exe_suffix | default("") }}
+    - etcd
+    - etcdctl
+    - etcdutl
   loop_control:
-    loop_var: etcd_exe
+    loop_var: etcd_stem
   include_tasks: links.yml
