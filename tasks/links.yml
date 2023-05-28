@@ -1,5 +1,5 @@
 ---
-- name: interpolating vars for {{ etcd_exe }}
+- name: interpolating vars for {{ etcd_stem }}
   include_vars: link-vars.yml
 - name: checking for {{ etcd_fq_exe }}
   become: true
