@@ -1,17 +1,16 @@
 ---
-- name: interpolating vars for {{ etcd_stem }}
-  include_vars: link-vars.yml
-- name: checking for {{ etcd_fq_exe }}
+- name: Interpolating vars for {{ etcd_stem }}
+  ansible.builtin.include_vars: link-vars.yml
+- name: Checking for {{ etcd_fq_exe }}
   become: true
-  stat:
+  ansible.builtin.stat:
     path: '{{ etcd_fq_exe }}'
   register: etcd_has_exe
-
 - when: etcd_has_exe.stat.exists
-  name: linking {{ etcd_fq_link }} to {{ etcd_fq_exe }}
+  name: Linking {{ etcd_fq_link }} to {{ etcd_fq_exe }}
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     src: '{{ etcd_fq_exe }}'
     dest: '{{ etcd_fq_link }}'
     state: link

@@ -1,16 +1,20 @@
 ---
-- hosts: all
+- name: Testing andrewrothstein.etcd
+  hosts: all
   roles:
     - role: '{{ playbook_dir }}'
-- import_playbook: test-exe.yml
+- name: Testing 'etcd --version'
+  ansible.builtin.import_playbook: test-exe.yml
   vars:
     exe: /usr/local/bin/etcd
     dash_version: --version
-- import_playbook: test-exe.yml
+- name: Testing 'etcdctl version'
+  ansible.builtin.import_playbook: test-exe.yml
   vars:
     exe: /usr/local/bin/etcdctl
     dash_version: version
-- import_playbook: test-exe.yml
+- name: Testing 'etcdutl version'
+  ansible.builtin.import_playbook: test-exe.yml
   vars:
     exe: /usr/local/bin/etcdutl
     dash_version: version

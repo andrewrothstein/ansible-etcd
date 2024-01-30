@@ -1,38 +1,40 @@
 ---
-- include_role:
+- name: Installing andrewrothstein.unarchivedeps
+  ansible.builtin.include_role:
     name: andrewrothstein.unarchivedeps
-- name: check for installation in {{ etcd_install_subdir }}
+- name: Check for installation in {{ etcd_install_subdir }}
   become: true
-  stat:
+  ansible.builtin.stat:
     path: '{{ etcd_install_subdir }}'
   changed_when: false
   register: etcd_binary_dir
 
-- when: not etcd_binary_dir.stat.exists
+- name: Downloading and installing etcd
+  when: not etcd_binary_dir.stat.exists
   block:
-    - name: downloading {{ etcd_archive_url }} to {{ etcd_tmp_archive }}
+    - name: Downloading {{ etcd_archive_url }} to {{ etcd_tmp_archive }}
       become: true
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ etcd_archive_url }}'
         dest: '{{ etcd_tmp_archive }}'
         checksum: '{{ etcd_checksum }}'
         timeout: '{{ etcd_download_timeout_seconds }}'
-        mode: 0644
-    - name: unachive {{ etcd_tmp_archive }} to {{ etcd_install_dir }}
+        mode: '644'
+    - name: Unachive {{ etcd_tmp_archive }} to {{ etcd_install_dir }}
       become: true
       become_user: root
-      unarchive:
+      ansible.builtin.unarchive:
         remote_src: true
         src: '{{ etcd_tmp_archive }}'
         dest: '{{ etcd_install_dir }}'
         creates: '{{ etcd_install_subdir }}'
         extra_opts: '{{ etcd_unarchive_extra_opts }}'
   always:
-    - name: rm {{ etcd_tmp_archive }}
+    - name: Rm {{ etcd_tmp_archive }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ etcd_tmp_archive }}'
         state: absent
 
@@ -42,4 +44,5 @@
     - etcdutl
   loop_control:
     loop_var: etcd_stem
-  include_tasks: links.yml
+  name: Creating links for etcd binaries
+  ansible.builtin.include_tasks: links.yml
