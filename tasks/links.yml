@@ -6,8 +6,8 @@
   ansible.builtin.stat:
     path: '{{ etcd_fq_exe }}'
   register: etcd_has_exe
-- when: etcd_has_exe.stat.exists
-  name: Linking {{ etcd_fq_link }} to {{ etcd_fq_exe }}
+- name: Linking {{ etcd_fq_link }} to {{ etcd_fq_exe }}
+  when: etcd_has_exe.stat.exists
   become: true
   become_user: root
   ansible.builtin.file:

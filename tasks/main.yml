@@ -38,11 +38,11 @@
         path: '{{ etcd_tmp_archive }}'
         state: absent
 
-- loop:
+- name: Linking etcd binaries
+  loop:
     - etcd
     - etcdctl
     - etcdutl
   loop_control:
     loop_var: etcd_stem
-  name: Creating links for etcd binaries
   ansible.builtin.include_tasks: links.yml
