@@ -1,7 +1,4 @@
 ---
-- name: Installing andrewrothstein.unarchivedeps
-  ansible.builtin.include_role:
-    name: andrewrothstein.unarchivedeps
 - name: Check for installation in {{ etcd_install_subdir }}
   become: true
   ansible.builtin.stat:
@@ -21,6 +18,9 @@
         checksum: '{{ etcd_checksum }}'
         timeout: '{{ etcd_download_timeout_seconds }}'
         mode: '644'
+    - name: Installing andrewrothstein.unarchivedeps
+      ansible.builtin.include_role:
+        name: andrewrothstein.unarchivedeps
     - name: Unachive {{ etcd_tmp_archive }} to {{ etcd_install_dir }}
       become: true
       become_user: root

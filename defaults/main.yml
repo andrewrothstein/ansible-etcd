@@ -1,5 +1,5 @@
 ---
-etcd_version: v3.5.13
+etcd_version: v3.5.14
 etcd_arch_map:
   aarch64: arm64
   arm64: arm64
@@ -572,3 +572,19 @@ etcd_checksums:
     linux-s390x: sha256:a5b64e7ccbff79b46f5b5e4d715956c55229d7b2a1949c94f2128bb81553cfe3
     # https://github.com/etcd-io/etcd/releases/download/v3.5.13/etcd-v3.5.13-windows-amd64.zip
     windows-amd64: sha256:31737da2adaeeacf2c85154cf5b4db2f50f3a68de0b30c760ab5280c49bdda8d
+  # https://github.com/etcd-io/etcd/releases/download/v3.5.14/SHA256SUMS
+  v3.5.14:
+    # https://github.com/etcd-io/etcd/releases/download/v3.5.14/etcd-v3.5.14-darwin-amd64.zip
+    darwin-amd64: sha256:1f8914156e949eb5afcb7b4d443a813ef83dd4efc50c940184a55390d21035c6
+    # https://github.com/etcd-io/etcd/releases/download/v3.5.14/etcd-v3.5.14-darwin-arm64.zip
+    darwin-arm64: sha256:bf97a77ac95fc42858276f0bb6ab55f857d16dc05a622cf4e53e7ada57d9ae14
+    # https://github.com/etcd-io/etcd/releases/download/v3.5.14/etcd-v3.5.14-linux-amd64.tar.gz
+    linux-amd64: sha256:b0b34298f53f6830f08e7ddc57fc74dc45563216a66e94d9e6b0b9e0b0281b34
+    # https://github.com/etcd-io/etcd/releases/download/v3.5.14/etcd-v3.5.14-linux-arm64.tar.gz
+    linux-arm64: sha256:90510c79c4aae3c3313691f5770fc53b3ac883338fc0254bf8d22460acd3c19d
+    # https://github.com/etcd-io/etcd/releases/download/v3.5.14/etcd-v3.5.14-linux-ppc64le.tar.gz
+    linux-ppc64le: sha256:01681d4d33bba5130c9cffca42c35b0f68e0d991b0b4ee65dab6fd36568d4fee
+    # https://github.com/etcd-io/etcd/releases/download/v3.5.14/etcd-v3.5.14-linux-s390x.tar.gz
+    linux-s390x: sha256:64d6032b3592f6440a721d8e3d3e97ea1cc789e1cc4c724b6e179d157518b337
+    # https://github.com/etcd-io/etcd/releases/download/v3.5.14/etcd-v3.5.14-windows-amd64.zip
+    windows-amd64: sha256:a1a6cde6dbb1af0df243b7acdde3b81a9c912921e67f593be3fca5d60b0143a1
