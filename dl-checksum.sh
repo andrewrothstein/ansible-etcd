@@ -37,4 +37,4 @@ dl_ver() {
     dl $ver $lshasum windows amd64 zip
 }
 
-dl_ver ${1:-v3.5.14}
+dl_ver ${1:-v3.5.15}

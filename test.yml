@@ -6,15 +6,15 @@
 - name: Testing 'etcd --version'
   ansible.builtin.import_playbook: test-exe.yml
   vars:
-    exe: /usr/local/bin/etcd
+    exe: etcd
     dash_version: --version
 - name: Testing 'etcdctl version'
   ansible.builtin.import_playbook: test-exe.yml
   vars:
-    exe: /usr/local/bin/etcdctl
+    exe: etcdctl
     dash_version: version
 - name: Testing 'etcdutl version'
   ansible.builtin.import_playbook: test-exe.yml
   vars:
-    exe: /usr/local/bin/etcdutl
+    exe: etcdutl
     dash_version: version

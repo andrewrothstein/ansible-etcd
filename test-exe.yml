@@ -2,17 +2,10 @@
 - name: Testing '{{ exe }} {{ dash_version }}'
   hosts: all
   tasks:
-    - name: Looking for {{ exe }}
-      ansible.builtin.stat:
-        path: '{{ exe }}'
-      register: exe_bin
-    - name: Executing...
-      when: exe_bin.stat.exists
-      block:
-        - name: Executing '{{ exe }} {{ dash_version }}'
-          ansible.builtin.command: '{{ exe }} {{ dash_version }}'
-          changed_when: false
-          register: exe_output
-        - name: Output from '{{ exe }} {{ dash_version }}'
-          ansible.builtin.debug:
-            msg: '{{ exe_output.stdout }}'
+    - name: Executing '{{ exe }} {{ dash_version }}'
+      ansible.builtin.command: '{{ exe }} {{ dash_version }}'
+      changed_when: false
+      register: exe_output
+    - name: Output from '{{ exe }} {{ dash_version }}'
+      ansible.builtin.debug:
+        msg: '{{ exe_output.stdout }}'
